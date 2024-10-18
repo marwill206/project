@@ -6,6 +6,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}", 
   ],
   theme: {
     extend: {
@@ -19,18 +20,7 @@ module.exports = {
        tallscreen: {'raw': '(min-aspect-ratio: 13/20)'},
       },
 
-      keyframes:{
-         menuO: {
-          '0%': {transform: 'scaleY(0)'},
-          '80%': {transform: 'scaleY(1.2)'},
-          '100%': {transform: 'scaleY(1)'},
-         },
 
-         animation:{
-          menuO : 'menuO 0.5s ease-in-out forwards',
-         }
-
-      },
 
       colors: {
         background: "var(--background)",
@@ -38,6 +28,7 @@ module.exports = {
         header: "#F3EDE9",
         text: "#4A4A4A",
         goodGreen: "#C5B9A6",
+        another_color: "#DEE4E9",
       },
     },
   },
