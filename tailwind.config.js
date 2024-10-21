@@ -29,6 +29,8 @@ module.exports = {
         text: "#4A4A4A",
         goodGreen: "#C5B9A6",
         another_color: "#DEE4E9",
+        another_color2: "#e5ddd4",
+        footer: "#D5D5D5",
       },
     },
   },

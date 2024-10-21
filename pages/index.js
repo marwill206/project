@@ -14,13 +14,15 @@ export async function getStaticProps() {
   });
 
   const items = res.items;
-  const logoUrl = items[0]?.fields?.logo?.fields?.file?.url || "";
-  const aboutText = items[0]?.fields?.aboutMeDisc || "";
-  const imges = items[0]?.fields?.fotos[0]?.fields?.file?.url || "";
+  const logoUrl = items[0]?.fields?.logo?.fields?.file?.url;
+  const aboutText = items[0]?.fields?.aboutMeDisc;
+  const imges = items[0]?.fields?.fotos;
   const projects = res2.items;
   const codeImg = items[0]?.fields?.promrameerTalen;
   const framework = items[0]?.fields?.frameworks;
   const database = items[0]?.fields?.database;
+  const opleidingText = items[0]?.fields?.opleiding;
+  const socials = items[0]?.fields?.socials;
   return {
     props: {
       items,
@@ -31,6 +33,8 @@ export async function getStaticProps() {
       codeImg,
       framework,
       database,
+      opleidingText,
+      socials,
     },
   };
 }
@@ -44,14 +48,16 @@ const Home = ({
   codeImg,
   framework,
   database,
+  opleidingText,
+  socials,
 }) => {
   if (!Array.isArray(items)) {
     return <div>No items found</div>;
   }
   //console.log(framework);
-  console.log(items);
+  console.log(imges);
   return (
-    <Layout logoUrl={logoUrl}>
+    <Layout logoUrl={logoUrl} socials={socials}>
       <main className="mt-20 p-10 text-text">
         <section>
           <div
@@ -61,13 +67,17 @@ const Home = ({
             <div className=" shadow-xl md:shadow-none w-full md:w-1/2 bg-header p-5 md:rounded-tl-xl md:rounded-bl-xl rounded-bl-xl rounded-tl-xl ">
               <h2 className="text-left  text-4xl font-light mb-2">About me</h2>
               <div className="flex gap-10 flex-col md:flex-row">
-                <img className="md:w-1/2" src={imges} alt="" />
+                <img
+                  className="md:w-1/2"
+                  src={imges[0].fields.file.url}
+                  alt=""
+                />
                 <div className="shadow-xl p-2">
                   {documentToReactComponents(aboutText, renderOptions)}
                 </div>
               </div>
             </div>
-            <div className="shadow-xl md:shadow-none p-5 bg-goodGreen md:w-1/2 md:rounded-br-xl md:rounded-tr-xl rounded-tr-xl rounded-br-xl">
+            <div className="shadow-xl md:shadow-none md:mt-0 mt-5 p-5 bg-goodGreen md:w-1/2 md:rounded-br-xl md:rounded-tr-xl rounded-tr-xl rounded-br-xl">
               <h2 className=" md:text-left text-right text-4xl font-light mb-2">
                 Project's
               </h2>
@@ -92,24 +102,28 @@ const Home = ({
               </div>
             </div>
           </div>
-          <div className="flex flex-row justify-between mr-20 ml-20">
+        </section>
+
+        <section>
+          <div className="flex md:flex-row flex-col justify-between md:mr-20 md:ml-20">
             <div
               id=" coding"
-              className=" bg-another_color flex-wrap p-2 w-96 flex flex-col gap-2 rounded-xl mt-20 "
+              className=" bg-another_color flex-wrap p-2 md:w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
             >
               <div className=" text-center font-bold">
-                Programeer talen die ik beheers
+                Languages I've mastered
               </div>
-              <div className="flex flex-row gap-2 justify-center">
+              <div className="flex flex-row flex-wrap gap-2 justify-center">
                 {codeImg.map((codeImg, index) => (
                   <a
+                    className="hover:scale-105 transform transition-transform duration-300  hover:z-10"
                     key={codeImg.sys.id}
                     target="_blank"
                     rel="noopener noreferrer"
                     href={codeImg.fields.description}
                   >
                     <img
-                      className="w-20"
+                      className="md:w-20 w-16"
                       src={codeImg.fields.file.url}
                       alt=""
                     />
@@ -120,21 +134,22 @@ const Home = ({
 
             <div
               id=" framework"
-              className=" bg-another_color flex-wrap p-2 w-96 flex flex-col gap-2 rounded-xl mt-20 "
+              className=" bg-another_color flex-wrap p-2 md:w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
             >
               <div className=" text-center font-bold">
-                Programeer talen die ik beheers
+                Frameworks I've mastered
               </div>
               <div className="flex flex-row gap-2 justify-center">
                 {framework.map((framework, index) => (
                   <a
+                    className="hover:scale-105 transform transition-transform duration-300  hover:z-10"
                     key={framework.sys.id}
                     target="_blank"
                     rel="noopener noreferrer"
                     href={framework.fields.description}
                   >
                     <img
-                      className="w-20"
+                      className="md:w-20 w-16"
                       src={framework.fields.file.url}
                       alt=""
                     />
@@ -145,27 +160,44 @@ const Home = ({
 
             <div
               id=" database"
-              className=" bg-another_color flex-wrap p-2 w-96 flex flex-col gap-2 rounded-xl mt-20 "
+              className=" bg-another_color flex-wrap p-2 md:w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
             >
               <div className=" text-center font-bold">
-                Programeer talen die ik beheers
+                Database I've mastered
               </div>
               <div className="flex flex-row gap-2 justify-center">
                 {database.map((database, index) => (
                   <a
+                    className="hover:scale-105 transform transition-transform duration-300  hover:z-10"
                     key={database.sys.id}
                     target="_blank"
                     rel="noopener noreferrer"
                     href={database.fields.description}
                   >
                     <img
-                      className="w-20"
+                      className="md:w-20 w-16"
                       src={database.fields.file.url}
                       alt=""
                     />
                   </a>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div
+            className="bg-another_color2 mt-20 shadow-xl  p-7
+          md:rounded-xl rounded-bl-xl rounded-tl-xl
+          "
+          >
+            <h2 className="text-left text-4xl font-light mb-3">Education</h2>
+            <div className="flex md:flex-row flex-col gap-4 justify-center">
+              <div className=" md:text-center md:w-1/2">
+                {documentToReactComponents(opleidingText, renderOptions)}
+              </div>
+              <img className="md:w-1/2" src={imges[1].fields.file.url} alt="" />
             </div>
           </div>
         </section>

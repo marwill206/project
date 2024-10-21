@@ -1,8 +1,8 @@
 import React from "react";
 
-const Header = ({ handleNav, menuOpen,logoUrl }) => {
+const Header = ({ handleNav, menuOpen, logoUrl }) => {
   return (
-    <header className="  bg-header flex items-center justify-between md:p-4 p-1 fixed z-50 w-full h-16 md:h-24 ">
+    <header className=" shadow-lg  bg-header flex items-center justify-between md:p-4 p-1 fixed z-50 w-full h-16 md:h-24 ">
       <div className="flex items-center">
         <div className=" p-2 ">
           <img
