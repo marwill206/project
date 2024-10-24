@@ -2,12 +2,12 @@ import React from "react";
 
 const Footer = ({ socials }) => {
   return (
-    <div className="text-text w-full bg-footer flex flex-row justify-between p-3 items-center">
-      <div className="text-s">© 2024 || Marijn Willems</div>
-      <div className="flex flex-row items-center gap-5 md:gap-10">
+    <div className="text-text w-full bg-footer flex flex-row md:justify-between p-3 items-center">
+      <div className="text-lg">©2024 || Marijn Willems</div>
+      <div className="flex flex-row items-center gap-10">
         {" "}
         <a
-          className="hover:text-white transition-ease-in-out underline duration-300 rounded-xl text-xl "
+          className="hover:text-white transition-ease-in-out underline duration-300 rounded-xl text-xl md:text-2xl "
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=5s"
         >
           CV

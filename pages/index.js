@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import client from "@/lib/contentful";
 import Layout from "../components/Layout";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import renderOptions from "@/lib/contentful_renderer";
+import Modal from "@/components/modal";
 
 export async function getStaticProps() {
   const res = await client.getEntries({
@@ -56,6 +57,20 @@ const Home = ({
   }
   //console.log(framework);
   console.log(imges);
+
+  const [isModelOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const modalOpen = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModel = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <Layout logoUrl={logoUrl} socials={socials}>
       <main className="mt-20 p-10 text-text">
@@ -87,8 +102,9 @@ const Home = ({
                     className="  w-1/2 flex flex-col gap-1 items-center"
                     key={project.sys.id}
                   >
-                    <a
-                      className="   transition-opacity ease-in-out duration-300 md:hover:opacity-100 md:opacity-75 w-11/12 p-5 md:w-9/12 shadow-xl"
+                    <button
+                      onClick={() => modalOpen(project)}
+                      className="transition-opacity ease-in-out duration-300 md:hover:opacity-100 md:opacity-75 w-11/12 p-5 md:w-9/12 shadow-xl"
                       href=""
                     >
                       <img
@@ -96,7 +112,7 @@ const Home = ({
                         src={project.fields.foto[0].fields.file.url}
                         alt=""
                       />
-                    </a>
+                    </button>
                   </div>
                 ))}
               </div>
@@ -108,7 +124,7 @@ const Home = ({
           <div className="flex md:flex-row flex-col justify-between md:mr-20 md:ml-20">
             <div
               id=" coding"
-              className=" bg-another_color flex-wrap p-2 md:w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
+              className=" bg-another_color flex-wrap p-2 md:min-w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
             >
               <div className=" text-center font-bold">
                 Languages I've mastered
@@ -134,7 +150,7 @@ const Home = ({
 
             <div
               id=" framework"
-              className=" bg-another_color flex-wrap p-2 md:w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
+              className=" bg-another_color flex-wrap p-2 md:min-w-96 flex flex-col gap-2 rounded-xl mt-10 md:mt-16 "
             >
               <div className=" text-center font-bold">
                 Frameworks I've mastered
@@ -202,6 +218,12 @@ const Home = ({
           </div>
         </section>
       </main>
+
+      <Modal
+        isOpen={isModelOpen}
+        onClose={closeModel}
+        selectedProject={selectedProject}
+      ></Modal>
     </Layout>
   );
 };

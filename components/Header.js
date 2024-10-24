@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Header = ({ handleNav, menuOpen, logoUrl }) => {
   return (
@@ -35,42 +36,42 @@ const Header = ({ handleNav, menuOpen, logoUrl }) => {
         }
       >
         <nav className="flex flex-col text-text gap-1 ">
-          <a className="underline" href="">
+          <Link className="underline" href="/">
             About
-          </a>
-          <a className="underline" href="">
+          </Link>
+          <Link className="underline" href="/project">
             Project's
-          </a>
-          <a className="underline" href="">
+          </Link>
+          <Link className="underline" href="">
             Contact
-          </a>
+          </Link>
         </nav>
       </div>
 
       <div className="flex flex-row gap-6 hidden md:flex">
-        <a
+        <Link
           className="relative md:w-36 text-text hover:text-goodGreen md:h-16 flex items-center justify-center  pt-2 group transition-all duration-300 ease-in-out"
-          href=""
+          href="/"
         >
           <div className="absolute inset-0 border-t  border-text  group-hover:border-t-4 group-hover:border-goodGreen z-10 transition-all duration-200 ease-in-out"></div>
           <div className="relative z-10">About</div>
-        </a>
-        <a
+        </Link>
+        <Link
           className="relative md:w-36 text-text hover:text-goodGreen md:h-16 flex items-center justify-center  pt-2 group transition-all duration-300 ease-in-out"
-          href=""
+          href="/project"
         >
           <div className="absolute inset-0 border-t  border-text  group-hover:border-t-4 group-hover:border-goodGreen z-10 transition-all duration-200 ease-in-out"></div>
 
           <div className=""> Project's</div>
-        </a>
-        <a
+        </Link>
+        <Link
           className="relative md:w-36 text-text hover:text-goodGreen md:h-16 flex items-center justify-center  pt-2 group transition-all duration-300 ease-in-out"
           href=""
         >
           <div className="absolute inset-0 border-t  border-text  group-hover:border-t-4 group-hover:border-goodGreen z-10 transition-all duration-200 ease-in-out"></div>
 
           <div className=""> Contact</div>
-        </a>
+        </Link>
       </div>
     </header>
   );
