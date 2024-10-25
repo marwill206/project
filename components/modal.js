@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import renderOptions from "@/lib/contentful_renderer";
 const Modal = ({ isOpen, onClose, selectedProject }) => {
-
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bg-black bg-opacity-50 inset-0 flex items-center justify-center z-50 ">
+    <div className="fixed animate-fadeIn2 bg-black bg-opacity-50 inset-0 flex items-center justify-center z-50 ">
       <div className="fixed inset-0  opacity-50" onClick={onClose}></div>
-      <div className="bg-header p-8 rounded-2xl shadow-2xl z-10 relative w-10/12 mx-4 transform">
+      <div className="bg-header animate-fadeIn p-8 rounded-2xl shadow-2xl z-10 relative w-10/12 mx-4 transform">
         <button
           className="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-800"
           onClick={onClose}

@@ -73,8 +73,8 @@ const Home = ({
 
   return (
     <Layout logoUrl={logoUrl} socials={socials}>
-      <main className="mt-20 p-10 text-text">
-        <section>
+      <main className=" bg-main_color p-10 text-text animate-fadeIn">
+        <section className="mt-20">
           <div
             id="frontBox"
             className=" md:gap-0 gap-5 flex flex-col md:flex-row w-full md:shadow-2xl rounded-xl "
@@ -210,7 +210,7 @@ const Home = ({
           >
             <h2 className="text-left text-4xl font-light mb-3">Education</h2>
             <div className="flex md:flex-row flex-col gap-4 justify-center">
-              <div className=" md:text-center md:w-1/2">
+              <div className=" md:text-center md:w-1/2 md:h-full h-44 overflow-auto">
                 {documentToReactComponents(opleidingText, renderOptions)}
               </div>
               <img className="md:w-1/2" src={imges[1].fields.file.url} alt="" />

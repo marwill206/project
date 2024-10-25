@@ -43,10 +43,13 @@ const Home = ({ logoUrl, socials, projects }) => {
     setSelectedProject(null);
   };
 
+
+
+  
   return (
     <Layout logoUrl={logoUrl} socials={socials}>
-      <main className="mt-20 pr-10 pl-10 text-text">
-        <section className="flex pt-10 pb-10 bg-another_color h-full p-5 flex-row flex-wrap gap-5 justify-center">
+      <main className=" bg-main_color pr-10 pl-10 text-text animate-fadeIn">
+        <section className="flex mt-20 pt-10 pb-10 bg-another_color h-full p-5 flex-row flex-wrap gap-5 justify-center">
           {projects.map((project, index) => (
             <div
               key={project.sys.id}
@@ -64,10 +67,10 @@ const Home = ({ logoUrl, socials, projects }) => {
               </button>
               <div className="flex flex-col md:w-1/2 bg-header p-4 md:rounded-tr-xl rounded-br-xl ">
                 <h2 className=" max-w-xs overflow-hidden text-ellipsis whitespace-nowrap md:h-1/4  p-2 md:text-4xl text-2xl font-light mb-2 text-center">
-                {project.fields.naam}
+                  {project.fields.naam}
                 </h2>
                 <div className="h-1/2 flex flex-col gap-5 ">
-                  <h4 className="text-xl ">What I've used</h4>
+                  <h4 className="text-lg ">What I've used</h4>
                   <div className="flex flex-row h-1/2 flex-wrap gap-3">
                     {project.fields.gebruikt2.map((img, index) => (
                       <a
@@ -78,7 +81,7 @@ const Home = ({ logoUrl, socials, projects }) => {
                         href={img.fields.description}
                       >
                         <img
-                          className="md:w-16 w-12"
+                          className=" w-12 md:w-14"
                           src={img.fields.file.url}
                           alt=""
                         />
@@ -91,8 +94,11 @@ const Home = ({ logoUrl, socials, projects }) => {
           ))}
         </section>
       </main>
-      <Modal isOpen={isModelOpen} onClose={closeModel} selectedProject={selectedProject} >
-      </Modal>
+      <Modal
+        isOpen={isModelOpen}
+        onClose={closeModel}
+        selectedProject={selectedProject}
+      ></Modal>
     </Layout>
   );
 };
