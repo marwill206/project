@@ -1,6 +1,4 @@
-
 const initApp2 = () => {
-  console.log("oke");
   const hamburgerBtn = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobile-menu");
 

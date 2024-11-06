@@ -55,8 +55,6 @@ const Home = ({
   if (!Array.isArray(items)) {
     return <div>No items found</div>;
   }
-  //console.log(framework);
-  console.log(imges);
 
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);

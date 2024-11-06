@@ -19,16 +19,18 @@ const Header = ({ handleNav, menuOpen, logoUrl }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlHeader);
-return () => {
-  window.removeEventListener("scroll", controlHeader );
-}
-
+      return () => {
+        window.removeEventListener("scroll", controlHeader);
+      };
     }
-
-  },[lastScrollY]);
+  }, [lastScrollY]);
 
   return (
-    <header className={`shadow-lg  bg-header flex items-center justify-between md:p-4 p-1 fixed w-full z-50 h-16 md:h-24 transition-transform-opacity duration-500  ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"} `}>
+    <header
+      className={`shadow-lg  bg-header flex items-center justify-between md:p-4 p-1 fixed w-full z-50 h-16 md:h-24 transition-transform-opacity duration-500  ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      } `}
+    >
       <div className="flex items-center">
         <div className=" p-2 ">
           <img

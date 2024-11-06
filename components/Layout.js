@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
-const Layout = ({ children,logoUrl,socials }) => {
+const Layout = ({ children, logoUrl, socials }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = () => {
@@ -18,7 +18,6 @@ const Layout = ({ children,logoUrl,socials }) => {
       </Head>
 
       <Header handleNav={handleNav} menuOpen={menuOpen} logoUrl={logoUrl} />
-      
 
       <main>{children}</main>
 

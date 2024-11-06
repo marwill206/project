@@ -24,8 +24,6 @@ module.exports = {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
-
-        
       },
 
       animation: {
@@ -42,7 +40,7 @@ module.exports = {
         another_color: "#DEE4E9",
         another_color2: "#e5ddd4",
         footer: "#D5D5D5",
-        main_color:"#fffcf9",
+        main_color: "#fffcf9",
       },
     },
   },

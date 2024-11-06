@@ -28,8 +28,6 @@ export async function getStaticProps() {
   };
 }
 const Home = ({ logoUrl, socials, projects }) => {
-  //   console.log(projects[0].fields.naam);
-
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -43,9 +41,6 @@ const Home = ({ logoUrl, socials, projects }) => {
     setSelectedProject(null);
   };
 
-
-
-  
   return (
     <Layout logoUrl={logoUrl} socials={socials}>
       <main className=" bg-main_color pr-10 pl-10 text-text animate-fadeIn">

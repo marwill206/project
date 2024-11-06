@@ -30,12 +30,12 @@ export async function getStaticProps() {
       items,
       mail,
       number,
-      GetIn 
+      GetIn,
     },
   };
 }
 
-const Home = ({ logoUrl, socials, items, mail, number,GetIn }) => {
+const Home = ({ logoUrl, socials, items, mail, number, GetIn }) => {
   return (
     <Layout logoUrl={logoUrl} socials={socials}>
       <main className="  pr-10 pl-10 p-5 bg-main_color text-text animate-fadeIn">
@@ -62,7 +62,10 @@ const Home = ({ logoUrl, socials, items, mail, number,GetIn }) => {
           <form className="flex md:mr-20 gap-5 flex-col md:gap-0 mb-4 md:justify-end md:flex-row">
             <div className="md:w-96 md:mr-40 md:mt-10 rounded-xl p-4 h-64 bg-footer">
               <div className="text-text font-light text-3xl ">Get in touch</div>
-              <div className="p-1 overflow-auto h-48">  {documentToReactComponents(GetIn, renderOptions)}</div>
+              <div className="p-1 overflow-auto h-48">
+                {" "}
+                {documentToReactComponents(GetIn, renderOptions)}
+              </div>
             </div>
             <div className="bg-another_color2 flex flex-col justify-between p-5 rounded-tl-xl rounded-bl-xl">
               <div className="mt-5">

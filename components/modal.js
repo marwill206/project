@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import renderOptions from "@/lib/contentful_renderer";
+import renderOptions from "../lib/contentful_renderer";
 const Modal = ({ isOpen, onClose, selectedProject }) => {
   if (!isOpen) return null;
 
